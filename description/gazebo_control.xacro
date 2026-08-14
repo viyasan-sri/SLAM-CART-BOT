@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot">
+
+    <gazebo>
+        <plugin filename="gz-sim-mecanum-drive-system"
+                name="gz::sim::systems::MecanumDrive">
+
+            <!-- Wheel joints -->
+            <front_left_joint>leftf_wheel_joint</front_left_joint>
+            <front_right_joint>rightf_wheel_joint</front_right_joint>
+            <back_left_joint>leftb_wheel_joint</back_left_joint>
+            <back_right_joint>rightb_wheel_joint</back_right_joint>
+
+            <!-- Kinematics -->
+            <wheel_separation>0.35</wheel_separation>
+            <wheelbase>0.2</wheelbase>
+            <wheel_radius>0.034</wheel_radius>
+
+            <!-- Limits -->
+            <min_acceleration>-5</min_acceleration>
+            <max_acceleration>5</max_acceleration>
+
+            <!-- Topics -->
+            <topic>cmd_vel</topic>
+            <odom_topic>odom</odom_topic>
+            <frame_id>odom</frame_id>
+            <child_frame_id>base_link</child_frame_id>
+            <tf_topic>tf</tf_topic>
+
+        </plugin>
+    </gazebo>
+
+</robot>
